@@ -1,0 +1,23 @@
+<div class="mt-2">
+    <strong>Libros:</strong>
+
+    <ul class="mb-2 mt-2">
+        {% for libro in libros %}
+        <li>
+            <strong>{{ libro.titulo }}</strong>
+            <br>
+            <small class="text-secondary">
+                Autor(es): {{ libro.autores }}
+            </small>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <button type="button"
+            class="btn btn-sm btn-outline-secondary"
+            hx-get="/autores/{{ autor_id }}/ocultar-libros"
+            hx-target="#libros-autor-{{ autor_id }}"
+            hx-swap="innerHTML">
+        Ocultar libros
+    </button>
+</div>
